@@ -9,7 +9,7 @@
     <name>Hasimir</name>
     <signingkey>
       <type>OpenPGP: RSA/El-Gamal/RSA</type>
-      <fingerprint>SHA-1:DB4724E6FA4286C92B4E55C4321E4E2373590E5D</fingerprint>
+      <fingerprint>SHA1:DB4724E6FA4286C92B4E55C4321E4E2373590E5D</fingerprint>
       <masterkey>
 	<algorithm>RSA</algorithm>
 	<keysize>4096</keysize>
@@ -39,7 +39,7 @@
     <contractarguments>
       <party_1>
 	<name>nanotube</name>
-        <targetkeyfingerprint>SHA-1:D8B11AAC59A873B0F38D475CE7F938BEC95594B2</targetkeyfingerprint>
+        <targetkeyfingerprint>SHA1:D8B11AAC59A873B0F38D475CE7F938BEC95594B2</targetkeyfingerprint>
         <rating>69</rating>
         <propagationrating>propagationrating</propagationrating>
         <comment>Great idea, but it needs to spread.  Also, an example needs to include crass sexual innuendo.</comment>
@@ -140,7 +140,7 @@ zj343D7v9qneG29WvFUR2/zA+G/xmRuLd/oWrz35wsn2T58aPDz12B+ZmRc6hldd
   </contractinstance>
 </data>
 
-<key id="SHA-1:DB4724E6FA4286C92B4E55C4321E4E2373590E5D">
+<key id="SHA1:DB4724E6FA4286C92B4E55C4321E4E2373590E5D">
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mQINBFAT4bsBEADDsKVDXPxbY88oDXwoNeTQ6KaKxxZ9fE2PGv3dtUBqCX8opuVz
