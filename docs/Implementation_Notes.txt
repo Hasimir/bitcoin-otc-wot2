@@ -42,6 +42,9 @@ What needs to be done, as I see it (this list will grow):
     upon, without adversely affecting existing nodes which might not
     support that information.
 
+1c) See Methodology.txt and Schema.txt for more details on this, more
+    integral, aspect of the project.
+
 2) Representation of that in XML.
 
 3) Conversion to other formats (JSON likely to be high up the list).
