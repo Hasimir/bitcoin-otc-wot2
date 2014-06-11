@@ -12,6 +12,7 @@ The minimum key requirements are:
 * Master/Certification key:  4096-bit RSA
 * Signing subkey:  2048-bit RSA or 3072-bit DSA (DSA-2)
 * Encryption subkey:  4096-bit RSA or 4096-bit El-Gamal
+* Authentication subkey:  optional (not required)
 
 The minimum signature requirements are:
 
@@ -19,10 +20,10 @@ The minimum signature requirements are:
 
 The minimum symmetric encryption requirements are:
 
-* 256-bit algorithms included with GPG.
-* AES256 (this is the most common).
-* TWOFISH.
-* CAMELLIA256.
+* 256-bit algorithms included with GPG
+* AES256 (this is the most common)
+* TWOFISH
+* CAMELLIA256
 
 Please note that elliptic curve algorithms are not yet standard and are not supported in all implementations of the OpenPGP standard.
 
