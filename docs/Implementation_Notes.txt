@@ -63,7 +63,8 @@ Proposed tools (I'm fairly biased here, but there's nothing stopping
 anyone else from coding their own solution after the information
 schema has been developed):
 
-1) Python 3.2+
+1) Python 2.7 or 3.2+ (because Twisted not fully supported in Py3
+   yet).
 
 2) Twisted Framework - for the interactive bot (on any protocol you
    like).
