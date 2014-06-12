@@ -45,6 +45,8 @@ Contains complete data about a node and those documents it holds for which it is
 
 Depending on the number of files served, it may be preferable to create a separate index file.
 
+The node.xml file contains the following main tags: info, dataloc, realms, datasrc and authority.  The info section deals with identifying information about the node or user, including the OpenPGP key details.  The dataloc specifies to location or locations where other nodes may retrieve authoritative data for that node (e.g. websites, torrents, etc.).  The realms are those groups or places in which the node is active or has been active in the past (for example, the #bitcoin-otc IRC channel is one realm).  The datasrc is the locations of files the node serves in relation to the base directory.  Even if the bulk of this is in an index.xml file, there will still be something present in the node.xml file.  The authority file refers to detached signature of the node.xml file made with the authoritive key for the node.
+
 
 Index File
 ----------
