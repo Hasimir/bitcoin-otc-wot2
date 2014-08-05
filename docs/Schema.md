@@ -3,6 +3,8 @@ Information Schema
 
 This document describes the data types to be included within the schema and does so utilising the base data format of XML.  XML has been chosen so that there is no requirement for additional software to maintain the files of a node, though that might be beneficial.  The schema is intended to be a framework which provides the ability to enhance or expand upon any aspect of it in the future.
 
+All of these data types should, however, be able to be replicated or stored in a database (e.g. PostgreSQL) or other more complex system id a user or node wishes.  Just as long as it can still be retrieved or requested in the most common or most accessible form upon request of any other node.  In the case of a database the defined directories shoild be able to be replicated or simulated through scripts or other code.
+
 
 Directory Structure
 -------------------
