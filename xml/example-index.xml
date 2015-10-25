@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<weboftrustdatapacket version="1.0">
+
+<info>
+  <name>Identifier of this node/user</name>
+  <timestamp>1402488942</timestamp>
+  <authorityref>node.xml</authorityref>
+</info>
+
+<realms>
+  <realm>
+    <title>Bitcoin-OTC</title>
+    <type>trading</type>
+    <name>Hasimir</name>
+  </realm>
+  <realm>
+    <title>Party for Progress</title>
+    <type>political</type>
+    <name>Milamber</name>
+</realm>
+
+<datasrc>
+  <archive>
+    <filename>Archive/Authority/rating-nodeY-timestamp.xml[.xz|gz|bz2|zip]</filename>
+    <timestamp>timestamp of file</timestamp>
+    <compression>type or uncompressed</compression>
+    <realm>Bitcoin-OTC</realm>
+  </archive>
+  <authoritive>
+    <filename>Authority/rating-nodeY.xml</filename>
+    <timestamp>Time last updated</timestamp>
+    <archived>yes/no</archived>
+    <realm>Bitcoin-OTC</realm>
+  </authoritive>
+  <partauthoritive>
+  </partauthoritive>
+  <othernodes>
+  </othernodes>
+</datasrc>
+
+<authority>
+  <authkey>
+    <keyfingerprint>SHA1:D8B11AAC59A873B0F38D475CE7F938BEC95594B2</keyfingerprint>
+    <signature>node.xml.sig (or node.xml.asc)</signature>
+    <type>detached signature authorising node.xml file</type>
+  </authkey>
+</authority

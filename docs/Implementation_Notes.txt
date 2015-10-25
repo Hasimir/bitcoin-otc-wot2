@@ -1,0 +1,83 @@
+Rough notes before I forget ...
+
+WoTv1 depends upon a central point to access and register with, the
+IRC bot gribble on freenode.net.  Since the aim of WoTv2 is a method
+of transferring information and establishing a trust metric across
+multiple realms, possibly multiple networks, that type of centralised
+access point would be of no benefit.
+
+The proposal document from nanotube indicates a likelihood of each
+participant in a network maintaining their own records on various
+transactions and encounters.  The obvious method of access being via
+the web, though it is certainly protocol agnostic.
+
+That being the case one should consider two things; one from the
+proposal and one from WoTv1:
+
+1) The proposal establishes a sample data set which might be a part of
+   the second WoT incarnation, a data set which is rendered in XML.
+
+2) One of the most useful and appealing aspects of the IRC bot is that
+   it is interactive, a user can literally ask it for some particular
+   type of information and it will respond (if it is able).
+
+On the XML front, it is very good at representing data in a form which
+can be readily understood by humans, but it isn't always the best
+format for delivering that information, depending on the delivery
+methods developed.
+
+On the interactive bot front, there are certainly elements of the IRC
+bot which would be of interest to others outside the context of an IRC
+channel.  That is, however, not outside the realm of possibility.
+
+What needs to be done, as I see it (this list will grow):
+
+1) Develop complete information schema and framework for the type of
+   information to be delivered through the WoTv2 network.
+
+1a) This is probably the most important part.  Needs to inlude lots of
+    types of data, as situation agnostic as possible.
+
+1b) Needs to include a framework by which the schema can be expanded
+    upon, without adversely affecting existing nodes which might not
+    support that information.
+
+1c) See Methodology.txt and Schema.txt for more details on this, more
+    integral, aspect of the project.
+
+2) Representation of that in XML.
+
+3) Conversion to other formats (JSON likely to be high up the list).
+
+4) Include a section of the schema to point to other nodes and the
+   means by which data is served or delivered.
+
+5) An interactive "bot-like" system, most likely to be run on nodes
+   controlled by the more technically savvy WoTv2 users.
+
+5a) Possibly get these bots to share with each other, as well as end
+    users.
+
+
+Proposed tools (I'm fairly biased here, but there's nothing stopping
+anyone else from coding their own solution after the information
+schema has been developed):
+
+1) Python 2.7 or 3.2+ (because Twisted not fully supported in Py3
+   yet).
+
+2) Twisted Framework - for the interactive bot (on any protocol you
+   like).
+
+3) Requests - for trawling the majority of nodes that will be dumped
+   on websites.  Eventually someone will turn these bots into an API,
+   at which point Requests will be everyone's friend.
+
+4) GPG - essential part of Nano's proposal, also include python-gnupg.
+
+5) Optionally Tor (Note to self: write up guide to using Tor with
+   Requests well before coding any of this).
+
+6) Other stuff will become more clear once I've gotten stuck into the
+   schema.
+

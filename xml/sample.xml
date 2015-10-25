@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<weboftrustdatapacket version="1.0">
+
+<info>
+  <name>name of this weboftrustpacket chain</name>
+  <timestamp>unixtimestamp</timestamp>
+  <owner>
+    <name>human readable name</name>
+    <signingkey>
+      <type>key type (e.g. PGP)</type>
+      <fingerprint>hashtype:print</fingerprint>
+    </signingkey>
+    <signingkey> .... </signingkey>
+  </owner>
+</info>
+
+<data>
+  <contractinstance timestamp="timestamp">
+    <contractref url="url where contract template body may be retrieved" hash="hashtype:hash"/>
+    <contractarguments>
+        <!-- these are just examples, and will vary depending on contract type -->
+        <targetkeyfingerprint>hashtype:print</targetkeyfingerprint>
+        <rating>rating</rating>
+        <propagationrating>propagationrating</propagationrating>
+        <comment>blabla</comment>
+    </contractarguments>
+  </contractinstance>
+  <contractinstance>.....</contractinstance>
+</data>
+
+<key id="hashtype:fingerprint">
+user's ascii-armored key goes here
+</key>
+
+</weboftrustdatapacket>
