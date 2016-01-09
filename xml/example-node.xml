@@ -91,6 +91,7 @@
     <signature>node.xml.sig (or node.xml.asc)</signature>
     <type>detached signature authorising node.xml file</type>
   </authkey>
-</authority
+</authority>
+</realms>
 
 </weboftrustdatapacket>

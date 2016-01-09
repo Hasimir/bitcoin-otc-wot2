@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  vc:maxVersion="1.1" vc:minVersion="1.0" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning">
+  <xs:element name="weboftrustdatapacket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="info"/>
+        <xs:element ref="data"/>
+        <xs:element ref="key"/>
+      </xs:sequence>
+      <xs:attribute name="version" use="required" type="xs:decimal"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element ref="timestamp"/>
+        <xs:element ref="owner"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="timestamp" type="xs:NCName"/>
+  <xs:element name="owner">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element maxOccurs="unbounded" ref="signingkey"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="signingkey">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="fingerprint"/>
+        <xs:element ref="type"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fingerprint" type="xs:NMTOKEN"/>
+  <xs:element name="type" type="xs:string"/>
+  <xs:element name="data">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="contractinstance"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="contractinstance">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="contractarguments"/>
+        <xs:element ref="contractref"/>
+      </xs:choice>
+      <xs:attribute name="timestamp" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="contractarguments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="targetkeyfingerprint"/>
+        <xs:element ref="rating"/>
+        <xs:element ref="propagationrating"/>
+        <xs:element ref="comment"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="targetkeyfingerprint" type="xs:NMTOKEN"/>
+  <xs:element name="rating" type="xs:NCName"/>
+  <xs:element name="propagationrating" type="xs:NCName"/>
+  <xs:element name="comment" type="xs:NCName"/>
+  <xs:element name="contractref">
+    <xs:complexType>
+      <xs:attribute name="hash" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="url" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="key">
+    <xs:complexType mixed="true">
+      <xs:attribute name="id" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name" type="xs:string"/>
+</xs:schema>

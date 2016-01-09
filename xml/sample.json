@@ -1,0 +1,37 @@
+{"weboftrustdatapacket": {
+    "version": 1,
+    "info": {
+        "name": "name of this weboftrustpacket chain",
+        "timestamp": "unixtimestamp",
+        "owner": {
+            "name": "human readable name",
+            "signingkey": [
+                {
+                    "type": "key type (e.g. PGP)",
+                    "fingerprint": "hashtype:print"
+                },
+                "...."
+            ]
+        }
+    },
+    "data": {"contractinstance": [
+        {
+            "timestamp": "timestamp",
+            "contractref": {
+                "url": "url where contract template body may be retrieved",
+                "hash": "hashtype:hash"
+            },
+            "contractarguments": {
+                "targetkeyfingerprint": "hashtype:print",
+                "rating": "rating",
+                "propagationrating": "propagationrating",
+                "comment": "blabla"
+            }
+        },
+        "....."
+    ]},
+    "key": {
+        "id": "hashtype:fingerprint",
+        "content": "user's ascii-armored key goes here"
+    }
+}}

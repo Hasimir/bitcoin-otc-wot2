@@ -1,0 +1,75 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT weboftrustdatapacket (info,data,key)>
+<!ATTLIST weboftrustdatapacket
+  xmlns CDATA #FIXED ''
+  version CDATA #REQUIRED>
+
+<!ELEMENT info (name,timestamp,owner)>
+<!ATTLIST info
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT data (contractinstance)+>
+<!ATTLIST data
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT key (#PCDATA)>
+<!ATTLIST key
+  xmlns CDATA #FIXED ''
+  id NMTOKEN #REQUIRED>
+
+<!ELEMENT timestamp (#PCDATA)>
+<!ATTLIST timestamp
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT owner (name,signingkey+)>
+<!ATTLIST owner
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT contractinstance (#PCDATA|contractarguments|contractref)*>
+<!ATTLIST contractinstance
+  xmlns CDATA #FIXED ''
+  timestamp NMTOKEN #IMPLIED>
+
+<!ELEMENT signingkey (#PCDATA|fingerprint|type)*>
+<!ATTLIST signingkey
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT contractarguments (targetkeyfingerprint,rating,
+                             propagationrating,comment)>
+<!ATTLIST contractarguments
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT contractref EMPTY>
+<!ATTLIST contractref
+  xmlns CDATA #FIXED ''
+  hash NMTOKEN #REQUIRED
+  url CDATA #REQUIRED>
+
+<!ELEMENT fingerprint (#PCDATA)>
+<!ATTLIST fingerprint
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT type (#PCDATA)>
+<!ATTLIST type
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT targetkeyfingerprint (#PCDATA)>
+<!ATTLIST targetkeyfingerprint
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT rating (#PCDATA)>
+<!ATTLIST rating
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT propagationrating (#PCDATA)>
+<!ATTLIST propagationrating
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT comment (#PCDATA)>
+<!ATTLIST comment
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT name (#PCDATA)>
+<!ATTLIST name
+  xmlns CDATA #FIXED ''>

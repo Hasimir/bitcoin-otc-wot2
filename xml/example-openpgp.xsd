@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  vc:maxVersion="1.1" vc:minVersion="1.0" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning">
+  <xs:element name="openpgpkey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="keyfile"/>
+        <xs:element ref="type"/>
+        <xs:element ref="fingerprint"/>
+        <xs:element ref="masterkey"/>
+        <xs:element maxOccurs="unbounded" ref="subkey"/>
+        <xs:element ref="asciikey"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="keyfile" type="xs:NCName"/>
+  <xs:element name="type" type="xs:string"/>
+  <xs:element name="fingerprint" type="xs:anyURI"/>
+  <xs:element name="masterkey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="algorithm"/>
+        <xs:element ref="keysize"/>
+        <xs:element maxOccurs="unbounded" ref="attribute"/>
+        <xs:element ref="longid"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="subkey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="algorithm"/>
+        <xs:element ref="keysize"/>
+        <xs:element ref="attribute"/>
+        <xs:element ref="longid"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="asciikey" type="xs:string"/>
+  <xs:element name="algorithm" type="xs:NCName"/>
+  <xs:element name="keysize" type="xs:integer"/>
+  <xs:element name="attribute" type="xs:NCName"/>
+  <xs:element name="longid" type="xs:NMTOKEN"/>
+</xs:schema>

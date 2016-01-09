@@ -1,0 +1,48 @@
+default namespace = ""
+
+start =
+  element weboftrustdatapacket {
+    attribute version { xsd:decimal },
+    element info {
+      name,
+      timestamp,
+      element authorityref { xsd:NCName }
+    },
+    element realms {
+      realm+,
+      element datasrc {
+        element archive {
+          filename,
+          timestamp,
+          element compression { text },
+          realm
+        },
+        element authoritive {
+          filename,
+          timestamp,
+          element archived { text },
+          realm
+        },
+        element partauthoritive { empty },
+        element othernodes { empty }
+      },
+      element authority {
+        element authkey {
+          element keyfingerprint { xsd:anyURI },
+          element signature { text },
+          type
+        }
+      }
+    }
+  }
+name = element name { text }
+timestamp = element timestamp { text }
+realm =
+  element realm {
+    (text
+     | name
+     | type
+     | element title { text })+
+  }
+filename = element filename { text }
+type = element type { text }

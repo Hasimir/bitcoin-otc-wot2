@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start>
+    <element name="weboftrustdatapacket">
+      <attribute name="version">
+        <data type="decimal"/>
+      </attribute>
+      <element name="info">
+        <ref name="name"/>
+        <element name="timestamp">
+          <data type="NCName"/>
+        </element>
+        <element name="owner">
+          <ref name="name"/>
+          <oneOrMore>
+            <element name="signingkey">
+              <oneOrMore>
+                <choice>
+                  <text/>
+                  <element name="fingerprint">
+                    <data type="NMTOKEN"/>
+                  </element>
+                  <element name="type">
+                    <text/>
+                  </element>
+                </choice>
+              </oneOrMore>
+            </element>
+          </oneOrMore>
+        </element>
+      </element>
+      <element name="data">
+        <oneOrMore>
+          <element name="contractinstance">
+            <optional>
+              <attribute name="timestamp">
+                <data type="NCName"/>
+              </attribute>
+            </optional>
+            <oneOrMore>
+              <choice>
+                <text/>
+                <element name="contractarguments">
+                  <element name="targetkeyfingerprint">
+                    <data type="NMTOKEN"/>
+                  </element>
+                  <element name="rating">
+                    <data type="NCName"/>
+                  </element>
+                  <element name="propagationrating">
+                    <data type="NCName"/>
+                  </element>
+                  <element name="comment">
+                    <data type="NCName"/>
+                  </element>
+                </element>
+                <element name="contractref">
+                  <attribute name="hash">
+                    <data type="NMTOKEN"/>
+                  </attribute>
+                  <attribute name="url"/>
+                </element>
+              </choice>
+            </oneOrMore>
+          </element>
+        </oneOrMore>
+      </element>
+      <element name="key">
+        <attribute name="id">
+          <data type="NMTOKEN"/>
+        </attribute>
+        <text/>
+      </element>
+    </element>
+  </start>
+  <define name="name">
+    <element name="name">
+      <text/>
+    </element>
+  </define>
+</grammar>

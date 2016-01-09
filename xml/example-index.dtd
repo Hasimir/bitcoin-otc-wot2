@@ -1,0 +1,86 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT weboftrustdatapacket (info,realms)>
+<!ATTLIST weboftrustdatapacket
+  xmlns CDATA #FIXED ''
+  version CDATA #REQUIRED>
+
+<!ELEMENT info (name,timestamp,authorityref)>
+<!ATTLIST info
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT realms (realm+,datasrc,authority)>
+<!ATTLIST realms
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT authorityref (#PCDATA)>
+<!ATTLIST authorityref
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT datasrc (archive,authoritive,partauthoritive,othernodes)>
+<!ATTLIST datasrc
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT authority (authkey)>
+<!ATTLIST authority
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT archive (filename,timestamp,compression,realm)>
+<!ATTLIST archive
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT authoritive (filename,timestamp,archived,realm)>
+<!ATTLIST authoritive
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT partauthoritive EMPTY>
+<!ATTLIST partauthoritive
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT othernodes EMPTY>
+<!ATTLIST othernodes
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT authkey (keyfingerprint,signature,type)>
+<!ATTLIST authkey
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT compression (#PCDATA)>
+<!ATTLIST compression
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT archived (#PCDATA)>
+<!ATTLIST archived
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT keyfingerprint (#PCDATA)>
+<!ATTLIST keyfingerprint
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT signature (#PCDATA)>
+<!ATTLIST signature
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT name (#PCDATA)>
+<!ATTLIST name
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT timestamp (#PCDATA)>
+<!ATTLIST timestamp
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT realm (#PCDATA|name|type|title)*>
+<!ATTLIST realm
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT title (#PCDATA)>
+<!ATTLIST title
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT filename (#PCDATA)>
+<!ATTLIST filename
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT type (#PCDATA)>
+<!ATTLIST type
+  xmlns CDATA #FIXED ''>

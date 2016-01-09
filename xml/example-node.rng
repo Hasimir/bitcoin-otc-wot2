@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start>
+    <element name="weboftrustdatapacket">
+      <attribute name="version">
+        <data type="decimal"/>
+      </attribute>
+      <element name="info">
+        <ref name="name"/>
+        <ref name="timestamp"/>
+        <element name="owner">
+          <ref name="name"/>
+          <element name="nick">
+            <text/>
+          </element>
+          <element name="openpgpkey">
+            <element name="keyfile">
+              <data type="NCName"/>
+            </element>
+            <ref name="type"/>
+            <element name="fingerprint">
+              <data type="anyURI"/>
+            </element>
+            <element name="masterkey">
+              <ref name="algorithm"/>
+              <ref name="keysize"/>
+              <oneOrMore>
+                <ref name="attribute"/>
+              </oneOrMore>
+              <ref name="longid"/>
+            </element>
+            <oneOrMore>
+              <element name="subkey">
+                <ref name="algorithm"/>
+                <ref name="keysize"/>
+                <ref name="attribute"/>
+                <ref name="longid"/>
+              </element>
+            </oneOrMore>
+          </element>
+        </element>
+      </element>
+      <element name="dataloc">
+        <oneOrMore>
+          <element name="location">
+            <ref name="name"/>
+            <element name="priority">
+              <data type="integer"/>
+            </element>
+            <element name="protocol">
+              <text/>
+            </element>
+            <element name="reference">
+              <data type="anyURI"/>
+            </element>
+            <ref name="timestamp"/>
+          </element>
+        </oneOrMore>
+      </element>
+      <element name="realms">
+        <oneOrMore>
+          <ref name="realm"/>
+        </oneOrMore>
+        <element name="datasrc">
+          <element name="index">
+            <text/>
+          </element>
+          <element name="indexfile">
+            <data type="NCName"/>
+          </element>
+          <element name="archive">
+            <ref name="filename"/>
+            <ref name="timestamp"/>
+            <element name="compression">
+              <text/>
+            </element>
+            <ref name="realm"/>
+          </element>
+          <element name="authoritive">
+            <ref name="filename"/>
+            <ref name="timestamp"/>
+            <element name="archived">
+              <text/>
+            </element>
+            <ref name="realm"/>
+          </element>
+          <element name="partauthoritive">
+            <empty/>
+          </element>
+          <element name="othernodes">
+            <empty/>
+          </element>
+        </element>
+        <element name="authority">
+          <element name="authkey">
+            <element name="keyfingerprint">
+              <data type="anyURI"/>
+            </element>
+            <element name="signature">
+              <text/>
+            </element>
+            <ref name="type"/>
+          </element>
+        </element>
+      </element>
+    </element>
+  </start>
+  <define name="name">
+    <element name="name">
+      <text/>
+    </element>
+  </define>
+  <define name="timestamp">
+    <element name="timestamp">
+      <text/>
+    </element>
+  </define>
+  <define name="type">
+    <element name="type">
+      <text/>
+    </element>
+  </define>
+  <define name="algorithm">
+    <element name="algorithm">
+      <data type="NCName"/>
+    </element>
+  </define>
+  <define name="keysize">
+    <element name="keysize">
+      <data type="integer"/>
+    </element>
+  </define>
+  <define name="attribute">
+    <element name="attribute">
+      <data type="NCName"/>
+    </element>
+  </define>
+  <define name="longid">
+    <element name="longid">
+      <data type="NMTOKEN"/>
+    </element>
+  </define>
+  <define name="realm">
+    <element name="realm">
+      <oneOrMore>
+        <choice>
+          <text/>
+          <ref name="name"/>
+          <ref name="type"/>
+          <element name="title">
+            <text/>
+          </element>
+        </choice>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="filename">
+    <element name="filename">
+      <text/>
+    </element>
+  </define>
+</grammar>
