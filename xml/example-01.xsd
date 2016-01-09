@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  vc:maxVersion="1.1" vc:minVersion="1.0" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning">
+  <xs:element name="weboftrustdatapacket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="info"/>
+        <xs:element ref="data"/>
+        <xs:element ref="key"/>
+      </xs:sequence>
+      <xs:attribute name="version" use="required" type="xs:decimal"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element ref="timestamp"/>
+        <xs:element ref="owner"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="timestamp" type="xs:integer"/>
+  <xs:element name="owner">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element ref="signingkey"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="signingkey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="type"/>
+        <xs:element ref="fingerprint"/>
+        <xs:element ref="masterkey"/>
+        <xs:element maxOccurs="unbounded" ref="subkey"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="type" type="xs:string"/>
+  <xs:element name="fingerprint" type="xs:anyURI"/>
+  <xs:element name="masterkey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="algorithm"/>
+        <xs:element ref="keysize"/>
+        <xs:element maxOccurs="unbounded" ref="attribute"/>
+        <xs:element ref="longid"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="subkey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="algorithm"/>
+        <xs:element ref="keysize"/>
+        <xs:element ref="attribute"/>
+        <xs:element ref="longid"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="data">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="contractinstance"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="contractinstance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="contractref"/>
+        <xs:element ref="contractarguments"/>
+        <xs:element ref="contractaddendum"/>
+      </xs:sequence>
+      <xs:attribute name="timestamp" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="contractref">
+    <xs:complexType>
+      <xs:attribute name="hash" use="required" type="xs:anyURI"/>
+      <xs:attribute name="text" use="required"/>
+      <xs:attribute name="url" use="required" type="xs:anyURI"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="contractarguments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="party_1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="party_1">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element ref="targetkeyfingerprint"/>
+        <xs:element ref="rating"/>
+        <xs:element ref="propagationrating"/>
+        <xs:element ref="comment"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="targetkeyfingerprint" type="xs:anyURI"/>
+  <xs:element name="rating" type="xs:integer"/>
+  <xs:element name="propagationrating" type="xs:NCName"/>
+  <xs:element name="comment" type="xs:string"/>
+  <xs:element name="contractaddendum">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="private"/>
+        <xs:element ref="public"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="private" type="xs:string"/>
+  <xs:element name="public" type="xs:string"/>
+  <xs:element name="key">
+    <xs:complexType mixed="true">
+      <xs:attribute name="id" use="required" type="xs:anyURI"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name" type="xs:string"/>
+  <xs:element name="algorithm" type="xs:NCName"/>
+  <xs:element name="keysize" type="xs:integer"/>
+  <xs:element name="attribute" type="xs:NCName"/>
+  <xs:element name="longid" type="xs:NMTOKEN"/>
+</xs:schema>

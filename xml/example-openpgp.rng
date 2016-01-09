@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start>
+    <element name="openpgpkey">
+      <oneOrMore>
+        <element name="keyfile">
+          <data type="NCName"/>
+        </element>
+      </oneOrMore>
+      <element name="type">
+        <text/>
+      </element>
+      <element name="fingerprint">
+        <data type="anyURI"/>
+      </element>
+      <element name="masterkey">
+        <ref name="algorithm"/>
+        <ref name="keysize"/>
+        <oneOrMore>
+          <ref name="attribute"/>
+        </oneOrMore>
+        <ref name="longid"/>
+      </element>
+      <oneOrMore>
+        <element name="subkey">
+          <ref name="algorithm"/>
+          <ref name="keysize"/>
+          <ref name="attribute"/>
+          <ref name="longid"/>
+        </element>
+      </oneOrMore>
+      <element name="asciikey">
+        <text/>
+      </element>
+    </element>
+  </start>
+  <define name="algorithm">
+    <element name="algorithm">
+      <data type="NCName"/>
+    </element>
+  </define>
+  <define name="keysize">
+    <element name="keysize">
+      <data type="integer"/>
+    </element>
+  </define>
+  <define name="attribute">
+    <element name="attribute">
+      <data type="NCName"/>
+    </element>
+  </define>
+  <define name="longid">
+    <element name="longid">
+      <data type="NMTOKEN"/>
+    </element>
+  </define>
+</grammar>

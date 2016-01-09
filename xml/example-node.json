@@ -1,0 +1,92 @@
+{"weboftrustdatapacket": {
+    "version": 1,
+    "info": {
+        "name": "Identifier of this node/user",
+        "timestamp": 1402488942,
+        "owner": {
+            "name": "Name or pseudonym of user",
+            "nick": "Username, IRC handle, screen name, etc.",
+            "openpgpkey": {
+                "keyfile": "pubkey.asc",
+                "type": "OpenPGP: RSA/El-Gamal/RSA",
+                "fingerprint": "SHA1:DB4724E6FA4286C92B4E55C4321E4E2373590E5D",
+                "masterkey": {
+                    "algorithm": "RSA",
+                    "keysize": 4096,
+                    "attribute": [
+                        "Certification",
+                        "Signing"
+                    ],
+                    "longid": "0x321E4E2373590E5D"
+                },
+                "subkey": [
+                    {
+                        "algorithm": "RSA",
+                        "keysize": 3072,
+                        "attribute": "Signing",
+                        "longid": "0x7FF2D37135C7553C"
+                    },
+                    {
+                        "algorithm": "El-Gamal",
+                        "keysize": 4096,
+                        "attribute": "Encryption",
+                        "longid": "0xC98BAA1862E4484D"
+                    }
+                ]
+            }
+        }
+    },
+    "dataloc": {"location": [
+        {
+            "name": "Name or tag of location",
+            "priority": 1,
+            "protocol": "HTTP, BitTorrent, etc.",
+            "reference": "http://www.example.org/path/to/base/directory/node.xml",
+            "timestamp": "time last updated"
+        },
+        {
+            "name": "Name or tag of location",
+            "priority": 2,
+            "protocol": "HTTP, BitTorrent, etc.",
+            "reference": "http://www.example.net/torrents/node-tracker.torrent",
+            "timestamp": "time last updated"
+        }
+    ]},
+    "realms": {
+        "realm": [
+            {
+                "title": "Bitcoin-OTC",
+                "type": "trading",
+                "name": "Hasimir"
+            },
+            {
+                "title": "Party for Progress",
+                "type": "political",
+                "name": "Milamber"
+            }
+        ],
+        "datasrc": {
+            "index": "yes/no (if no or absent, index here, otherwise see next tag)",
+            "indexfile": "index.xml",
+            "archive": {
+                "filename": "Archive/Authority/rating-nodeY-timestamp.xml[.xz|gz|bz2|zip]",
+                "timestamp": "timestamp of file",
+                "compression": "type or uncompressed",
+                "realm": "Bitcoin-OTC"
+            },
+            "authoritive": {
+                "filename": "Authority/rating-nodeY.xml",
+                "timestamp": "Time last updated",
+                "archived": "yes/no",
+                "realm": "Bitcoin-OTC"
+            },
+            "partauthoritive": "",
+            "othernodes": ""
+        },
+        "authority": {"authkey": {
+            "keyfingerprint": "SHA1:D8B11AAC59A873B0F38D475CE7F938BEC95594B2",
+            "signature": "node.xml.sig (or node.xml.asc)",
+            "type": "detached signature authorising node.xml file"
+        }}
+    }
+}}

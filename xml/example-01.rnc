@@ -1,0 +1,51 @@
+default namespace = ""
+
+start =
+  element weboftrustdatapacket {
+    attribute version { xsd:decimal },
+    element info {
+      name,
+      element timestamp { xsd:integer },
+      element owner {
+        name,
+        element signingkey {
+          element type { text },
+          element fingerprint { xsd:anyURI },
+          element masterkey { algorithm, keysize, \attribute+, longid },
+          element subkey { algorithm, keysize, \attribute, longid }+
+        }
+      }
+    },
+    element data {
+      element contractinstance {
+        attribute timestamp { xsd:integer },
+        element contractref {
+          attribute hash { xsd:anyURI },
+          attribute text { text },
+          attribute url { xsd:anyURI }
+        },
+        element contractarguments {
+          element party_1 {
+            name,
+            element targetkeyfingerprint { xsd:anyURI },
+            element rating { xsd:integer },
+            element propagationrating { xsd:NCName },
+            element comment { text }
+          }
+        },
+        element contractaddendum {
+          element private { text },
+          element public { text }
+        }
+      }
+    },
+    element key {
+      attribute id { xsd:anyURI },
+      text
+    }
+  }
+name = element name { text }
+algorithm = element algorithm { xsd:NCName }
+keysize = element keysize { xsd:integer }
+\attribute = element attribute { xsd:NCName }
+longid = element longid { xsd:NMTOKEN }

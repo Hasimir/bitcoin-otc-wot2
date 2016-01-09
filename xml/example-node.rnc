@@ -1,0 +1,73 @@
+default namespace = ""
+
+start =
+  element weboftrustdatapacket {
+    attribute version { xsd:decimal },
+    element info {
+      name,
+      timestamp,
+      element owner {
+        name,
+        element nick { text },
+        element openpgpkey {
+          element keyfile { xsd:NCName },
+          type,
+          element fingerprint { xsd:anyURI },
+          element masterkey { algorithm, keysize, \attribute+, longid },
+          element subkey { algorithm, keysize, \attribute, longid }+
+        }
+      }
+    },
+    element dataloc {
+      element location {
+        name,
+        element priority { xsd:integer },
+        element protocol { text },
+        element reference { xsd:anyURI },
+        timestamp
+      }+
+    },
+    element realms {
+      realm+,
+      element datasrc {
+        element index { text },
+        element indexfile { xsd:NCName },
+        element archive {
+          filename,
+          timestamp,
+          element compression { text },
+          realm
+        },
+        element authoritive {
+          filename,
+          timestamp,
+          element archived { text },
+          realm
+        },
+        element partauthoritive { empty },
+        element othernodes { empty }
+      },
+      element authority {
+        element authkey {
+          element keyfingerprint { xsd:anyURI },
+          element signature { text },
+          type
+        }
+      }
+    }
+  }
+name = element name { text }
+timestamp = element timestamp { text }
+type = element type { text }
+algorithm = element algorithm { xsd:NCName }
+keysize = element keysize { xsd:integer }
+\attribute = element attribute { xsd:NCName }
+longid = element longid { xsd:NMTOKEN }
+realm =
+  element realm {
+    (text
+     | name
+     | type
+     | element title { text })+
+  }
+filename = element filename { text }

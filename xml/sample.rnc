@@ -1,0 +1,39 @@
+default namespace = ""
+
+start =
+  element weboftrustdatapacket {
+    attribute version { xsd:decimal },
+    element info {
+      name,
+      element timestamp { xsd:NCName },
+      element owner {
+        name,
+        element signingkey {
+          (text
+           | element fingerprint { xsd:NMTOKEN }
+           | element type { text })+
+        }+
+      }
+    },
+    element data {
+      element contractinstance {
+        attribute timestamp { xsd:NCName }?,
+        (text
+         | element contractarguments {
+             element targetkeyfingerprint { xsd:NMTOKEN },
+             element rating { xsd:NCName },
+             element propagationrating { xsd:NCName },
+             element comment { xsd:NCName }
+           }
+         | element contractref {
+             attribute hash { xsd:NMTOKEN },
+             attribute url { text }
+           })+
+      }+
+    },
+    element key {
+      attribute id { xsd:NMTOKEN },
+      text
+    }
+  }
+name = element name { text }

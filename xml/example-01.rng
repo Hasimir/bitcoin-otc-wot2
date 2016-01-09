@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start>
+    <element name="weboftrustdatapacket">
+      <attribute name="version">
+        <data type="decimal"/>
+      </attribute>
+      <element name="info">
+        <ref name="name"/>
+        <element name="timestamp">
+          <data type="integer"/>
+        </element>
+        <element name="owner">
+          <ref name="name"/>
+          <element name="signingkey">
+            <element name="type">
+              <text/>
+            </element>
+            <element name="fingerprint">
+              <data type="anyURI"/>
+            </element>
+            <element name="masterkey">
+              <ref name="algorithm"/>
+              <ref name="keysize"/>
+              <oneOrMore>
+                <ref name="attribute"/>
+              </oneOrMore>
+              <ref name="longid"/>
+            </element>
+            <oneOrMore>
+              <element name="subkey">
+                <ref name="algorithm"/>
+                <ref name="keysize"/>
+                <ref name="attribute"/>
+                <ref name="longid"/>
+              </element>
+            </oneOrMore>
+          </element>
+        </element>
+      </element>
+      <element name="data">
+        <element name="contractinstance">
+          <attribute name="timestamp">
+            <data type="integer"/>
+          </attribute>
+          <element name="contractref">
+            <attribute name="hash">
+              <data type="anyURI"/>
+            </attribute>
+            <attribute name="text"/>
+            <attribute name="url">
+              <data type="anyURI"/>
+            </attribute>
+          </element>
+          <element name="contractarguments">
+            <element name="party_1">
+              <ref name="name"/>
+              <element name="targetkeyfingerprint">
+                <data type="anyURI"/>
+              </element>
+              <element name="rating">
+                <data type="integer"/>
+              </element>
+              <element name="propagationrating">
+                <data type="NCName"/>
+              </element>
+              <element name="comment">
+                <text/>
+              </element>
+            </element>
+          </element>
+          <element name="contractaddendum">
+            <element name="private">
+              <text/>
+            </element>
+            <element name="public">
+              <text/>
+            </element>
+          </element>
+        </element>
+      </element>
+      <element name="key">
+        <attribute name="id">
+          <data type="anyURI"/>
+        </attribute>
+        <text/>
+      </element>
+    </element>
+  </start>
+  <define name="name">
+    <element name="name">
+      <text/>
+    </element>
+  </define>
+  <define name="algorithm">
+    <element name="algorithm">
+      <data type="NCName"/>
+    </element>
+  </define>
+  <define name="keysize">
+    <element name="keysize">
+      <data type="integer"/>
+    </element>
+  </define>
+  <define name="attribute">
+    <element name="attribute">
+      <data type="NCName"/>
+    </element>
+  </define>
+  <define name="longid">
+    <element name="longid">
+      <data type="NMTOKEN"/>
+    </element>
+  </define>
+</grammar>

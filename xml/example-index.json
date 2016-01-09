@@ -1,0 +1,43 @@
+{"weboftrustdatapacket": {
+    "version": 1,
+    "info": {
+        "name": "Identifier of this node/user",
+        "timestamp": 1402488942,
+        "authorityref": "node.xml"
+    },
+    "realms": {
+        "realm": [
+            {
+                "title": "Bitcoin-OTC",
+                "type": "trading",
+                "name": "Hasimir"
+            },
+            {
+                "title": "Party for Progress",
+                "type": "political",
+                "name": "Milamber"
+            }
+        ],
+        "datasrc": {
+            "archive": {
+                "filename": "Archive/Authority/rating-nodeY-timestamp.xml[.xz|gz|bz2|zip]",
+                "timestamp": "timestamp of file",
+                "compression": "type or uncompressed",
+                "realm": "Bitcoin-OTC"
+            },
+            "authoritive": {
+                "filename": "Authority/rating-nodeY.xml",
+                "timestamp": "Time last updated",
+                "archived": "yes/no",
+                "realm": "Bitcoin-OTC"
+            },
+            "partauthoritive": "",
+            "othernodes": ""
+        },
+        "authority": {"authkey": {
+            "keyfingerprint": "SHA1:D8B11AAC59A873B0F38D475CE7F938BEC95594B2",
+            "signature": "node.xml.sig (or node.xml.asc)",
+            "type": "detached signature authorising node.xml file"
+        }}
+    }
+}}

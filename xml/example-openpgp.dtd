@@ -1,0 +1,46 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT openpgpkey (keyfile+,type,fingerprint,masterkey,subkey+,
+                      asciikey)>
+<!ATTLIST openpgpkey
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT keyfile (#PCDATA)>
+<!ATTLIST keyfile
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT type (#PCDATA)>
+<!ATTLIST type
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT fingerprint (#PCDATA)>
+<!ATTLIST fingerprint
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT masterkey (algorithm,keysize,attribute+,longid)>
+<!ATTLIST masterkey
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT subkey (algorithm,keysize,attribute,longid)>
+<!ATTLIST subkey
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT asciikey (#PCDATA)>
+<!ATTLIST asciikey
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT algorithm (#PCDATA)>
+<!ATTLIST algorithm
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT keysize (#PCDATA)>
+<!ATTLIST keysize
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT attribute (#PCDATA)>
+<!ATTLIST attribute
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT longid (#PCDATA)>
+<!ATTLIST longid
+  xmlns CDATA #FIXED ''>

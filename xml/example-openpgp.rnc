@@ -1,0 +1,15 @@
+default namespace = ""
+
+start =
+  element openpgpkey {
+    element keyfile { xsd:NCName }+,
+    element type { text },
+    element fingerprint { xsd:anyURI },
+    element masterkey { algorithm, keysize, \attribute+, longid },
+    element subkey { algorithm, keysize, \attribute, longid }+,
+    element asciikey { text }
+  }
+algorithm = element algorithm { xsd:NCName }
+keysize = element keysize { xsd:integer }
+\attribute = element attribute { xsd:NCName }
+longid = element longid { xsd:NMTOKEN }

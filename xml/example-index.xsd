@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  vc:maxVersion="1.1" vc:minVersion="1.0" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning">
+  <xs:element name="weboftrustdatapacket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="info"/>
+        <xs:element ref="realms"/>
+      </xs:sequence>
+      <xs:attribute name="version" use="required" type="xs:decimal"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element ref="timestamp"/>
+        <xs:element ref="authorityref"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="authorityref" type="xs:NCName"/>
+  <xs:element name="realms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="realm"/>
+        <xs:element ref="datasrc"/>
+        <xs:element ref="authority"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="datasrc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="archive"/>
+        <xs:element ref="authoritive"/>
+        <xs:element ref="partauthoritive"/>
+        <xs:element ref="othernodes"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="archive">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="filename"/>
+        <xs:element ref="timestamp"/>
+        <xs:element ref="compression"/>
+        <xs:element ref="realm"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="compression" type="xs:string"/>
+  <xs:element name="authoritive">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="filename"/>
+        <xs:element ref="timestamp"/>
+        <xs:element ref="archived"/>
+        <xs:element ref="realm"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="archived" type="xs:string"/>
+  <xs:element name="partauthoritive">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="othernodes">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="authority">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="authkey"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="authkey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="keyfingerprint"/>
+        <xs:element ref="signature"/>
+        <xs:element ref="type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="keyfingerprint" type="xs:anyURI"/>
+  <xs:element name="signature" type="xs:string"/>
+  <xs:element name="name" type="xs:string"/>
+  <xs:element name="timestamp" type="xs:string"/>
+  <xs:element name="realm">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="name"/>
+        <xs:element ref="type"/>
+        <xs:element ref="title"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="title" type="xs:string"/>
+  <xs:element name="filename" type="xs:string"/>
+  <xs:element name="type" type="xs:string"/>
+</xs:schema>
